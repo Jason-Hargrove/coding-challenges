@@ -39,3 +39,21 @@ def twoNumberSum(array, targetSum):
         elif currentSum > targetSum:
             right -= 1
         return []
+
+
+# ===== Validate Subsequence =====
+
+# ↓↓↓↓↓ You'll need to uncomment this to run TValidate Subsequece. ↓↓↓↓↓
+array = [5, 1, 22, 25, 6, -1, 8, 10];
+sequece = [1, 6, -1, 10];
+
+# O(n) time | O(1) space
+# Using a while loop.
+def validateSubsequence(array, sequence):
+    arraIdx = 0
+    seqIdx = 0
+    while arrIdx < len(arry) and seqIdx < len(sequence):
+        if array[arrIdx] === sequence[seqIdx]:
+            seqIndx += 1
+        arrIdx +=1
+    return seqIdx == len(sequence)
