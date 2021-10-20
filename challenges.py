@@ -57,3 +57,14 @@ def validateSubsequence(array, sequence):
             seqIndx += 1
         arrIdx +=1
     return seqIdx == len(sequence)
+
+# O(n) time | O(1) space
+# Using a for loop.
+def validateSubsequence(array, sequene):
+    seqIdx = 0
+    for value in array:
+        if seqIdx == len(sequence):
+            break
+        if seqence[seqIdx] == value:
+            seqIdx += 1
+    return seqIdx == len(sequence)

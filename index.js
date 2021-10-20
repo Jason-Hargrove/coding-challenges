@@ -57,21 +57,41 @@
 
 // ===== Validate Subsequence =====
 
-// ↓↓↓↓↓ You'll need to uncomment this to run TValidate Subsequece. ↓↓↓↓↓
+// ↓↓↓↓↓ You'll need to uncomment this to run Validate Subsequece. ↓↓↓↓↓
 array = [5, 1, 22, 25, 6, -1, 8, 10];
 sequence = [1, 6, -1, 10];
 
 // O(n) time | O(1) space
 // Using a while loop.
+// function isValidSubsequence(array, sequence) {
+//   let arrIdx = 0;
+//   let seqIdx = 0;
+//   while (arrIdx < array.length && seqIdx < sequence.length) {
+//     if (array[arrIdx] === sequence[seqIdx]) seqIdx++;
+//     arrIdx++;
+//   }
+//   return seqIdx === sequence.length;
+// }
+// console.log(isValidSubsequence(array, sequence))
+
+
+// O(n) time | O(1) space
+// Using a for loop.
 function isValidSubsequence(array, sequence) {
-  let arrIdx = 0;
   let seqIdx = 0;
-  while (arrIdx < array.length && seqIdx < sequence.length) {
-    if (array[arrIdx] === sequence[seqIdx]) seqIdx++;
-    arrIdx++;
+  for (const value of array) {
+    if (seqIdx === sequence.length) break;
+    if (sequence[seqIdx] === value) seqIdx++;
   }
   return seqIdx === sequence.length;
 }
-console.log(isValidSubsequence(array, sequence))
+console.log(isValidSubsequence(array, sequence));
+
+
+
+
+
+
+
 
 // To log output: cd into the file. In the terminal enter >node index
