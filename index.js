@@ -77,20 +77,36 @@ sequence = [1, 6, -1, 10];
 
 // O(n) time | O(1) space
 // Using a for loop.
-function isValidSubsequence(array, sequence) {
-  let seqIdx = 0;
-  for (const value of array) {
-    if (seqIdx === sequence.length) break;
-    if (sequence[seqIdx] === value) seqIdx++;
+// function isValidSubsequence(array, sequence) {
+//   let seqIdx = 0;
+//   for (const value of array) {
+//     if (seqIdx === sequence.length) break;
+//     if (sequence[seqIdx] === value) seqIdx++;
+//   }
+//   return seqIdx === sequence.length;
+// }
+// console.log(isValidSubsequence(array, sequence));
+
+
+// ===== Sorted Squared Array =====
+
+// ↓↓↓↓↓ You'll need to uncomment this to run Sorted Squared Array. ↓↓↓↓↓
+array = [1, 2, 3, 5, 6, 8, 9];
+
+// O(nLogn) time | O(n) space
+// Uing brute force.
+function sortedSquaredArray(array) {
+  const sortedSquares = new Array(array.length).fill(0);
+
+  for (let idx = 0; idx < array.length; idx++) {
+    const value = array[idx];
+    sortedSquares[idx] = value * value;
   }
-  return seqIdx === sequence.length;
+
+  sortedSquares.sort((a, b) => a - b);
+  return sortedSquares;
 }
-console.log(isValidSubsequence(array, sequence));
-
-
-
-
-
+console.log(sortedSquaredArray(array))
 
 
 
