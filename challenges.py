@@ -77,12 +77,32 @@ array = [1, 2, 3, 5, 6, 8, 9];
 
 # O(nLogn) time | O(n) space
 # Uing brute force.
+# def sortedSquaredArray(array):
+#     sortedSquares = [0 for _ in array]
+#
+#     for idx in range(len(array)):
+#         value = array[idx]
+#         sortedSquares[idx] = value * value
+#
+#     sortedSquares.sort()
+#     return sortedSquares
+
+# O(n) time | O(n) space
+# Uing brute force.
 def sortedSquaredArray(array):
     sortedSquares = [0 for _ in array]
+    smallerValueIdx = 0
+    largerValueIdx = len(array) - 1
 
-    for idx in range(len(array)):
-        value = array[idx]
-        sortedSquares[idx] = value * value
+    for idx in reversed(range(len(array))):
+        smallerValue = array[smallerValueIdx]
+        largerValue = array[largerValueIdx]
 
-    sortedSquares.sort()
+        if abs(smallerValue) > abs(largerValue):
+            sortedSquares[idx] = smallerValue * smallerValue
+            smallerValueIdx += 1
+        else:
+            sortedSquares[idx] = largerValue * largerValueIdx
+            largerValueIdx -= 1
+
     return sortedSquares
