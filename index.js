@@ -109,7 +109,7 @@ array = [1, 2, 3, 5, 6, 8, 9];
 // console.log(sortedSquaredArray(array))
 
 // O(nLogn) time | O(n) space
-// Solved in liner time, sorted in acending order.
+// Solved in liner time, sorted in ascending order.
 function sortedSquaredArray(array) {
   const sortedSquares = new Array(array.length).fill(0);
   let smallerValueIdx = 0;
