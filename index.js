@@ -91,7 +91,7 @@ sequence = [1, 6, -1, 10];
 // ===== Sorted Squared Array =====
 
 // ↓↓↓↓↓ You'll need to uncomment this to run Sorted Squared Array. ↓↓↓↓↓
-array = [1, 2, 3, 5, 6, 8, 9];
+// array = [1, 2, 3, 5, 6, 8, 9];
 
 // O(nLogn) time | O(n) space
 // Uing brute force.
@@ -110,27 +110,68 @@ array = [1, 2, 3, 5, 6, 8, 9];
 
 // O(nLogn) time | O(n) space
 // Solved in liner time, sorted in ascending order.
-function sortedSquaredArray(array) {
-  const sortedSquares = new Array(array.length).fill(0);
-  let smallerValueIdx = 0;
-  let largerValueIdx = array.length - 1;
+// function sortedSquaredArray(array) {
+//   const sortedSquares = new Array(array.length).fill(0);
+//   let smallerValueIdx = 0;
+//   let largerValueIdx = array.length - 1;
+//
+//   for (let idx = array.length - 1; idx >= 0; idx--) {
+//     const smallerValue = array[smallerValueIdx];
+//     const largerValue = array[largerValueIdx];
+//
+//     if (Math.abs(smallerValue) > Math.abs(largerValue)) {
+//       sortedSquares[idx] = smallerValue * smallerValue;
+//       smallerValueIdx++;
+//     } else {
+//       sortedSquares[idx] = largerValue * largerValue;
+//       largerValueIdx--;
+//     }
+//   }
+//
+//   return sortedSquares;
+// }
+// console.log(sortedSquaredArray(array));
 
-  for (let idx = array.length - 1; idx >= 0; idx--) {
-    const smallerValue = array[smallerValueIdx];
-    const largerValue = array[largerValueIdx];
 
-    if (Math.abs(smallerValue) > Math.abs(largerValue)) {
-      sortedSquares[idx] = smallerValue * smallerValue;
-      smallerValueIdx++;
-    } else {
-      sortedSquares[idx] = largerValue * largerValue;
-      largerValueIdx--;
+// ===== Tournament Winner =====
+
+// ↓↓↓↓↓ You'll need to uncomment this to run Sorted Squared Array. ↓↓↓↓↓
+competitions = [
+["HTML", "C#"],
+["C#", "Python"],
+["Python", "HTML"],
+];
+
+results = [1, 0, 0]
+
+const HOME_TEAM_WON = 1;
+
+function tournamentWinner(competitions, results) {
+  let currentBestTeam = '';
+  const scores = {[currentBestTeam]: 0};
+
+  for (let idx = 0; idx < competitions.length; idx++) {
+    const result = results[idx];
+    const [homeTeam, awayTeam] = competitions[idx];
+
+    const winningTeam = result === HOME_TEAM_WON ? homeTeam : awayTeam;
+
+    updateScores(winningTeam, 3, scores);
+
+    if (scores[winningTeam] > scores[currentBestTeam]) {
+      currentBestTeam = winningTeam;
     }
   }
 
-  return sortedSquares;
+  return currentBestTeam;
 }
-console.log(sortedSquaredArray(array));
+
+function updateScores(team, points, scores) {
+  if (!(team in scores)) scores[team] = 0;
+
+  scores[team] += points;
+}
+console.log(tournamentWinner(competitions, results))
 
 
 

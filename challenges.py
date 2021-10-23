@@ -73,7 +73,7 @@
 # ===== Sorted Squared Array =====
 
 # ↓↓↓↓↓ You'll need to uncomment this to run Sorted Squared Array. ↓↓↓↓↓
-array = [1, 2, 3, 5, 6, 8, 9];
+# array = [1, 2, 3, 5, 6, 8, 9];
 
 # O(nLogn) time | O(n) space
 # Uing brute force.
@@ -87,22 +87,61 @@ array = [1, 2, 3, 5, 6, 8, 9];
 #     sortedSquares.sort()
 #     return sortedSquares
 
-# O(n) time | O(n) space
-# Uing brute force.
-def sortedSquaredArray(array):
-    sortedSquares = [0 for _ in array]
-    smallerValueIdx = 0
-    largerValueIdx = len(array) - 1
+# O(nLogn) time | O(n) space
+# Solved in liner time, sorted in ascending order.
+# def sortedSquaredArray(array):
+#     sortedSquares = [0 for _ in array]
+#     smallerValueIdx = 0
+#     largerValueIdx = len(array) - 1
+#
+#     for idx in reversed(range(len(array))):
+#         smallerValue = array[smallerValueIdx]
+#         largerValue = array[largerValueIdx]
+#
+#         if abs(smallerValue) > abs(largerValue):
+#             sortedSquares[idx] = smallerValue * smallerValue
+#             smallerValueIdx += 1
+#         else:
+#             sortedSquares[idx] = largerValue * largerValueIdx
+#             largerValueIdx -= 1
+#
+#     return sortedSquares
 
-    for idx in reversed(range(len(array))):
-        smallerValue = array[smallerValueIdx]
-        largerValue = array[largerValueIdx]
 
-        if abs(smallerValue) > abs(largerValue):
-            sortedSquares[idx] = smallerValue * smallerValue
-            smallerValueIdx += 1
-        else:
-            sortedSquares[idx] = largerValue * largerValueIdx
-            largerValueIdx -= 1
+# ===== Tournament Winner =====
 
-    return sortedSquares
+# ↓↓↓↓↓ You'll need to uncomment this to run Sorted Squared Array. ↓↓↓↓↓
+competitions = [
+["HTML", "C#"],
+["C#", "Python"],
+["Python", "HTML"],
+]
+
+results = [0, 0, 1]
+
+# O(n) time | O(k) space
+# Solved using a hash table and a helper function.
+HOME_TEAM_WON = 1
+
+def tournamentWinner(competitions, results):
+    currentBestTeam = ""
+    scores = {currentBestTeam: 0}
+
+    for idx, competition in enumerate(competitions):
+        result = results[idx]
+        homeTeam, awayTeam = competition
+
+        winningTeam = homeTeam if result == HOME_TEAM_WON else awayTeam
+
+        updateScores(winningTeam, 3, scores)
+
+        if scores[winningTeam] > scores[currentBestTeam]:
+            currentBestTeam = winningTeam
+
+    return currentBestTeam
+
+def updateScores(team, points, scores):
+    if team not in scores:
+        scores[team] = 0
+
+    scores[team] += points
