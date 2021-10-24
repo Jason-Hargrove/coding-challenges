@@ -58,8 +58,8 @@
 // ===== Validate Subsequence =====
 
 // ↓↓↓↓↓ You'll need to uncomment this to run Validate Subsequece. ↓↓↓↓↓
-array = [5, 1, 22, 25, 6, -1, 8, 10];
-sequence = [1, 6, -1, 10];
+// array = [5, 1, 22, 25, 6, -1, 8, 10];
+// sequence = [1, 6, -1, 10];
 
 // O(n) time | O(1) space
 // Using a while loop.
@@ -135,45 +135,63 @@ sequence = [1, 6, -1, 10];
 
 // ===== Tournament Winner =====
 
-// ↓↓↓↓↓ You'll need to uncomment this to run Sorted Squared Array. ↓↓↓↓↓
-competitions = [
-["HTML", "C#"],
-["C#", "Python"],
-["Python", "HTML"],
-];
+// ↓↓↓↓↓ You'll need to uncomment this to run Tournament Winner. ↓↓↓↓↓
+// competitions = [
+// ["HTML", "C#"],
+// ["C#", "Python"],
+// ["Python", "HTML"],
+// ];
+//
+// results = [1, 0, 0]
+//
+// const HOME_TEAM_WON = 1;
+//
+// function tournamentWinner(competitions, results) {
+//   let currentBestTeam = '';
+//   const scores = {[currentBestTeam]: 0};
+//
+//   for (let idx = 0; idx < competitions.length; idx++) {
+//     const result = results[idx];
+//     const [homeTeam, awayTeam] = competitions[idx];
+//
+//     const winningTeam = result === HOME_TEAM_WON ? homeTeam : awayTeam;
+//
+//     updateScores(winningTeam, 3, scores);
+//
+//     if (scores[winningTeam] > scores[currentBestTeam]) {
+//       currentBestTeam = winningTeam;
+//     }
+//   }
+//
+//   return currentBestTeam;
+// }
+//
+// function updateScores(team, points, scores) {
+//   if (!(team in scores)) scores[team] = 0;
+//
+//   scores[team] += points;
+// }
+// console.log(tournamentWinner(competitions, results))
 
-results = [1, 0, 0]
 
-const HOME_TEAM_WON = 1;
+// ===== Non-Constructible Change =====
 
-function tournamentWinner(competitions, results) {
-  let currentBestTeam = '';
-  const scores = {[currentBestTeam]: 0};
+// ↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
+coins = [5, 7, 1, 1, 2, 3, 22];
 
-  for (let idx = 0; idx < competitions.length; idx++) {
-    const result = results[idx];
-    const [homeTeam, awayTeam] = competitions[idx];
+let currentChangeCreated = 0;
+function nonConstructibleChange(coins) {
+  coins.sort((a, b) => a - b);
 
-    const winningTeam = result === HOME_TEAM_WON ? homeTeam : awayTeam;
+  for (const coin of coins) {
+    if (coin > currentChangeCreated + 1) return currentChangeCreated + 1;
 
-    updateScores(winningTeam, 3, scores);
-
-    if (scores[winningTeam] > scores[currentBestTeam]) {
-      currentBestTeam = winningTeam;
-    }
+    currentChangeCreated += coin;
   }
 
-  return currentBestTeam;
+  return currentChangeCreated + 1;
 }
-
-function updateScores(team, points, scores) {
-  if (!(team in scores)) scores[team] = 0;
-
-  scores[team] += points;
-}
-console.log(tournamentWinner(competitions, results))
-
-
+console.log(nonConstructibleChange(coins));
 
 
 // To log output: cd into the file. In the terminal enter >node index

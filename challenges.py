@@ -1,5 +1,7 @@
 
 # ===== To Number Sum =====
+
+# ↓↓↓↓↓ You'll need to uncomment this to run To Number Sum. ↓↓↓↓↓
 # array = [3, 5, -4, 8 , 11, 1, -1, 6];
 # targetSum = 10;
 
@@ -110,38 +112,57 @@
 
 # ===== Tournament Winner =====
 
-# ↓↓↓↓↓ You'll need to uncomment this to run Sorted Squared Array. ↓↓↓↓↓
-competitions = [
-["HTML", "C#"],
-["C#", "Python"],
-["Python", "HTML"],
-]
-
-results = [0, 0, 1]
+# ↓↓↓↓↓ You'll need to uncomment this to run Tournament Winner. ↓↓↓↓↓
+# competitions = [
+# ["HTML", "C#"],
+# ["C#", "Python"],
+# ["Python", "HTML"],
+# ]
+#
+# results = [0, 0, 1]
 
 # O(n) time | O(k) space
 # Solved using a hash table and a helper function.
-HOME_TEAM_WON = 1
+# HOME_TEAM_WON = 1
+#
+# def tournamentWinner(competitions, results):
+#     currentBestTeam = ""
+#     scores = {currentBestTeam: 0}
+#
+#     for idx, competition in enumerate(competitions):
+#         result = results[idx]
+#         homeTeam, awayTeam = competition
+#
+#         winningTeam = homeTeam if result == HOME_TEAM_WON else awayTeam
+#
+#         updateScores(winningTeam, 3, scores)
+#
+#         if scores[winningTeam] > scores[currentBestTeam]:
+#             currentBestTeam = winningTeam
+#
+#     return currentBestTeam
+#
+# def updateScores(team, points, scores):
+#     if team not in scores:
+#         scores[team] = 0
+#
+#     scores[team] += points
 
-def tournamentWinner(competitions, results):
-    currentBestTeam = ""
-    scores = {currentBestTeam: 0}
 
-    for idx, competition in enumerate(competitions):
-        result = results[idx]
-        homeTeam, awayTeam = competition
+# ===== Non-Constructible Change =====
 
-        winningTeam = homeTeam if result == HOME_TEAM_WON else awayTeam
+# ↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
+coins = [5, 7, 1, 1, 2, 3, 22];
 
-        updateScores(winningTeam, 3, scores)
+# O(nLogn) time | O(1) space
+def nonConstructibleChange(coins):
+    coins.sort()
 
-        if scores[winningTeam] > scores[currentBestTeam]:
-            currentBestTeam = winningTeam
+    currentChangeCreated = 0
+    for coin in coins:
+        if coin > currentChangeCreated + 1:
+            return currentChangeCreated + 1
 
-    return currentBestTeam
+        currentChangeCreated += coin
 
-def updateScores(team, points, scores):
-    if team not in scores:
-        scores[team] = 0
-
-    scores[team] += points
+    return currentChangeCreated + 1
