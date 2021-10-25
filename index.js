@@ -177,21 +177,64 @@
 // ===== Non-Constructible Change =====
 
 // ↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
-coins = [5, 7, 1, 1, 2, 3, 22];
+// coins = [5, 7, 1, 1, 2, 3, 22];
+//
+// let currentChangeCreated = 0;
+// function nonConstructibleChange(coins) {
+//   coins.sort((a, b) => a - b);
+//
+//   for (const coin of coins) {
+//     if (coin > currentChangeCreated + 1) return currentChangeCreated + 1;
+//
+//     currentChangeCreated += coin;
+//   }
+//
+//   return currentChangeCreated + 1;
+// }
+// console.log(nonConstructibleChange(coins));
 
-let currentChangeCreated = 0;
-function nonConstructibleChange(coins) {
-  coins.sort((a, b) => a - b);
 
-  for (const coin of coins) {
-    if (coin > currentChangeCreated + 1) return currentChangeCreated + 1;
+// ===== A re-introduction to JavaScript (JS tutorial) =====
 
-    currentChangeCreated += coin;
-  }
-
-  return currentChangeCreated + 1;
-}
-console.log(nonConstructibleChange(coins));
+// == Numbers ==
+// console.log(3 / 2);
+// console.log(Math.floor(3 / 2));
+// const num = 0.1 + 0.2;
+// console.log(num);
+// console.log(Math.sin(3.5));
+// r = 3.5;
+// var circumference = 2 * Math.PI * r;
+// console.log(circumference);
+// console.log (parseInt('123', 10));
+// const someNum = (parseInt('010', 10));
+// console.log(typeof(someNum));
+// console.log(parseInt('010'));
+// console.log(parseInt('0x10')); // hexadecimal
+// console.log(parseInt('11', 2));
+// console.log(parseFloat('11'));
+// const unary = + '42';
+// console.log(+ '010');
+// console.log(+ '0x10');
+// console.log(unary + " is a " + typeof(unary) + ".");
+// console.log(parseInt('hello', 10));
+// console.log(NaN + 5);
+// console.log(Number.isNaN(NaN));
+// console.log(Number.isNaN('hello'));
+// console.log(Number.isNaN('1'));
+// console.log(Number.isNaN(undefined));
+// console.log(Number.isNaN({}));
+// console.log(Number.isNaN([1]));
+// console.log(Number.isNaN([1, 2]));
+// console.log(isNaN('hello')); // Bad practice to not use Number with isNaN.
+// console.log(1 / 0);
+// console.log(-1 / 0);
+// console.log(isFinite(1 / 0));
+// console.log(isFinite(-Infinity));
+// console.log(isFinite(NaN));
+// let str = "11.2abc";
+// console.log(parseInt(str, 10));
+// console.log(parseFloat(str));
+// console.log(+ str);
 
 
 // To log output: cd into the file. In the terminal enter >node index
