@@ -241,103 +241,144 @@
 
 //↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
 
-
 // Do not edit the class below except for
 // the insert, contains, and remove methods.
 // Feel free to add new properties and methods
 // to the class.
-class BST {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
+// class BST {
+//   constructor(value) {
+//     this.value = value;
+//     this.left = null;
+//     this.right = null;
+//   }
+//
+//   // Average: O(log(n)) time | O(log(n)) space
+//   // Worst: O(n) time | O(n) space
+//   insert(value) {
+//     if (value < this.value) {
+// 			if (this.left === null) {
+// 				this.left = new BST(value);
+// 			} else {
+// 				this.left.insert(value);
+// 			}
+// 		} else {
+// 			if (this.right === null) {
+// 				this.right = new BST(value);
+// 			} else {
+// 				this.right.insert(value);
+// 			}
+// 		}
+//     // Do not edit the return statement of this method.
+//     return this;
+//   }
+//
+//   // Average: O(log(n)) time | O(log(n)) space
+//   // Worst: O(n) time | O(n) space
+//   contains(value) {
+//     if (value < this.value) {
+// 			if (this.left === null) {
+// 				return false;
+// 			} else {
+// 				return this.left.contains(value);
+// 			}
+// 		} else if (value > this.value) {
+// 			if (this.right === null) {
+// 				return false;
+// 			} else {
+// 				return this.right.contains(value);
+// 			}
+// 		} else {
+// 			return true;
+// 		}
+//   }
+//
+//   // Average: O(log(n)) time | O(log(n)) space
+//   // Worst: O(n) time | O(n) space
+//   remove(value, parent = null) {
+//     if (value < this.value) {
+// 			if (this.left !== null) {
+// 				this.left.remove(value, this);
+// 			}
+// 		} else if (value > this.value) {
+// 			if (this.right !== null) {
+// 				this.right.remove(value, this);
+// 			}
+// 		} else {
+// 			if (this.left !== null && this.right !== null) {
+// 				this.value = this.right.getMinValue();
+// 				this.right.remove(this.value, this);
+// 			} else if (parent === null) {
+// 				if (this.left !== null) {
+// 					this.value = this.left.value;
+// 					this.right = this.left.right;
+// 					this.left = this.left.left;
+// 				} else if (this.right !== null) {
+// 					this.value = this.right.value;
+// 					this.left = this.right.left;
+// 					this.right = this.right.right;
+// 				} else {
+// 					// This is a single-node tree. Do nothing.
+// 				}
+// 			} else if (parent.left === this) {
+// 				parent.left = this.left !== null ? this.left : this.right;
+// 			} else if (parent.right === this) {
+// 				parent.right = this.left !== null ? this.left : this.right;
+// 			}
+// 		}
+//     // Do not edit the return statement of this method.
+//     return this;
+//   }
+//
+//   getMinValue() {
+//     if (this.left === null) {
+//       return this.value;
+//     } else {
+//       return this.left.getMinValue();
+//     }
+//   }
+// }
 
-  // Average: O(log(n)) time | O(log(n)) space
-  // Worst: O(n) time | O(n) space
-  insert(value) {
-    if (value < this.value) {
-			if (this.left === null) {
-				this.left = new BST(value);
-			} else {
-				this.left.insert(value);
-			}
-		} else {
-			if (this.right === null) {
-				this.right = new BST(value);
-			} else {
-				this.right.insert(value);
-			}
-		}
-    // Do not edit the return statement of this method.
-    return this;
-  }
 
-  // Average: O(log(n)) time | O(log(n)) space
-  // Worst: O(n) time | O(n) space
-  contains(value) {
-    if (value < this.value) {
-			if (this.left === null) {
-				return false;
-			} else {
-				return this.left.contains(value);
-			}
-		} else if (value > this.value) {
-			if (this.right === null) {
-				return false;
-			} else {
-				return this.right.contains(value);
-			}
-		} else {
-			return true;
-		}
-  }
+// ===== Find Closest Value in BST =====
 
-  // Average: O(log(n)) time | O(log(n)) space
-  // Worst: O(n) time | O(n) space
-  remove(value, parent = null) {
-    if (value < this.value) {
-			if (this.left !== null) {
-				this.left.remove(value, this);
-			}
-		} else if (value > this.value) {
-			if (this.right !== null) {
-				this.right.remove(value, this);
-			}
-		} else {
-			if (this.left !== null && this.right !== null) {
-				this.value = this.right.getMinValue();
-				this.right.remove(this.value, this);
-			} else if (parent === null) {
-				if (this.left !== null) {
-					this.value = this.left.value;
-					this.right = this.left.right;
-					this.left = this.left.left;
-				} else if (this.right !== null) {
-					this.value = this.right.value;
-					this.left = this.right.left;
-					this.right = this.right.right;
-				} else {
-					// This is a single-node tree. Do nothing.
-				}
-			} else if (parent.left === this) {
-				parent.left = this.left !== null ? this.left : this.right;
-			} else if (parent.right === this) {
-				parent.right = this.left !== null ? this.left : this.right;
-			}
-		}
-    // Do not edit the return statement of this method.
-    return this;
-  }
+// ↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
+const tree = {
+  "nodes": [
+    {"id": "10", "left": "5", "right": "15", "value": 10},
+    {"id": "15", "left": "13", "right": "22", "value": 15},
+    {"id": "22", "left": null, "right": null, "value": 22},
+    {"id": "13", "left": null, "right": "14", "value": 13},
+    {"id": "14", "left": null, "right": null, "value": 14},
+    {"id": "5", "left": "2", "right": "5-2", "value": 5},
+    {"id": "5-2", "left": null, "right": null, "value": 5},
+    {"id": "2", "left": "1", "right": null, "value": 2},
+    {"id": "1", "left": null, "right": null, "value": 1}
+  ],
+  "root": "10"
+}
 
-  getMinValue() {
-    if (this.left === null) {
-      return this.value;
-    } else {
-      return this.left.getMinValue();
-    }
+// Solved recursively.
+// Average: 0(Log(n)) time | 0(Log(n)) space
+// Worst: 0(n) time | 0(n) space
+
+function findClosestValueInBst(tree, target) {
+  return findClosestValueInBstHelper(tree, target, tree.value);
+}
+
+function findClosestValueInBstHelper(tree, target, closest) {
+  if (tree == null) return closest;
+  if (Math.abs(target - closest) > Math.abs(target - tree.value)) {
+    closest = tree.value;
+  }
+  if (target < tree.value) {
+    return findClosestValueInBstHelper(tree.left, target, closest);
+  } else if (target > tree.value) {
+    return findClosestValueInBstHelper(tree.right, target, closest);
+  } else {
+    return closest;
   }
 }
+console.log(findClosestValueInBst(tree, 12));
 
 
 // To log output: cd into the file. In the terminal enter >node index

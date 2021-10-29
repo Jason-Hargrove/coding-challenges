@@ -172,79 +172,119 @@
 
 # ↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
 #
-class BST:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+# class BST:
+#     def __init__(self, value):
+#         self.value = value
+#         self.left = None
+#         self.right = None
+#
+#     # Average: 0(Log(n)) time | 0(1) space
+#     # Worst: 0(n) time | 0(1) space
+#     def insert(self, value):
+#         currentNode = self
+#         while True:
+#             if value < currentNode.value:
+#                 if currentNode.left is None:
+#                     currentNode.left = BST(value)
+#                     break
+#                 else:
+#                     currentNode = currentNode.left
+#             else:
+#                 if currentNode.right is None:
+#                     currentNode.right = BST(value)
+#                     break
+#                 else:
+#                     currentNode = currentNode.right
+#         return self
+#
+#     # Average: 0(Log(n)) time | 0(1) space
+#     # Worst: 0(n) time | 0(1) space
+#     def contains(self, value):
+#         currentNode = self
+#         while currentNode is not None:
+#             if value < currentNode.value:
+#                 currentNode = currentNode.left
+#             elif value > currentNode.value:
+#                 currentNode = currentNode.right
+#             else:
+#                 return True
+#         return False
+#
+#     # Average: 0(Log(n)) time | 0(1) space
+#     # Worst: 0(n) time | 0(1) space
+#     def remove(self, value, parentNode = None):
+#         currentNode = self
+#         while currentNode is not None:
+#             if value < currentNode.value:
+#                 parentNode = currentNode
+#                 currentNode = currentNode.left
+#             elif value > currentNode.value:
+#                 parentNode = currentNode
+#                 currentNode = currentNode.right
+#             else:
+#                 if currentNode.left is not None and currentNode.right is not None:
+#                     currentNode.value = currentNode.right.getMinValue()
+#                     currentNode.right.remove(currentNode.value, currentNode)
+#                 elif parentNoed is None:
+#                     if currentNode.left is not None:
+#                         currentNode.value = currentNode.left.value
+#                         currentNode.right = currentNode.left.rigth
+#                         currentNode.left = currentNode.left.left
+#                     elif currentNode.right is not None:
+#                         currentNode.value = currentNode.right.value
+#                         currentNode.value = currentNode.right.left
+#                         currentNode.value = currentNode.right.right
+#                     else:
+#                         currentNode.value = None
+#                 elif parentNode.left = currentNode:
+#                     parentNode.left = currentNode.left if currentNode.left is not None else currentNode.right
+#                 elif parentNode.right == currentNode:
+#                     parentNode.right = currentNode.left if currentNode.left is not NOne else currentNode.right
+#                 break
+#         return self
+#
+# def gitMinValue(self):
+#     currentNode = self
+#     while currentNode.left is not None:
+#         currentNode = currentNode.left
+#     return currentNode.value
 
-    # Average: 0(Log(n)) time | 0(1) space
-    # Worst: 0(n) time | 0(1) space
-    def insert(self, value):
-        currentNode = self
-        while True:
-            if value < currentNode.value:
-                if currentNode.left is None:
-                    currentNode.left = BST(value)
-                    break
-                else:
-                    currentNode = currentNode.left
-            else:
-                if currentNode.right is None:
-                    currentNode.right = BST(value)
-                    break
-                else:
-                    currentNode = currentNode.right
-        return self
 
-    # Average: 0(Log(n)) time | 0(1) space
-    # Worst: 0(n) time | 0(1) space
-    def contains(self, value):
-        currentNode = self
-        while currentNode is not None:
-            if value < currentNode.value:
-                currentNode = currentNode.left
-            elif value > currentNode.value:
-                currentNode = currentNode.right
-            else:
-                return True
-        return False
+# ===== Find Cosest Value in BST =====
 
-    # Average: 0(Log(n)) time | 0(1) space
-    # Worst: 0(n) time | 0(1) space
-    def remove(self, value, parentNode = None):
-        currentNode = self
-        while currentNode is not None:
-            if value < currentNode.value:
-                parentNode = currentNode
-                currentNode = currentNode.left
-            elif value > currentNode.value:
-                parentNode = currentNode
-                currentNode = currentNode.right
-            else:
-                if currentNode.left is not None and currentNode.right is not None:
-                    currentNode.value = currentNode.right.getMinValue()
-                    currentNode.right.remove(currentNode.value, currentNode)
-                elif parentNoed is None:
-                    if currentNode.left is not None:
-                        currentNode.value = currentNode.left.value
-                        currentNode.right = currentNode.left.rigth
-                        currentNode.left = currentNode.left.left
-                    elif currentNode.right is not None:
-                        currentNode.value = currentNode.right.value
-                        currentNode.value = currentNode.right.left
-                        currentNode.value = currentNode.right.right
-                    else:
-                        currentNode.value = None
-                elif parentNode.left = currentNode:
-                    parentNode.left = currentNode.left if currentNode.left is not None else currentNode.right
-                elif parentNode.right == currentNode:
-                    parentNode.right = currentNode.left if currentNode.left is not NOne else currentNode.right
-                break
-        return self
+# ↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
+# {
+#   "tree": {
+#     "nodes": [
+#       {"id": "10", "left": "5", "right": "15", "value": 10},
+#       {"id": "15", "left": "13", "right": "22", "value": 15},
+#       {"id": "22", "left": null, "right": null, "value": 22},
+#       {"id": "13", "left": null, "right": "14", "value": 13},
+#       {"id": "14", "left": null, "right": null, "value": 14},
+#       {"id": "5", "left": "2", "right": "5-2", "value": 5},
+#       {"id": "5-2", "left": null, "right": null, "value": 5},
+#       {"id": "2", "left": "1", "right": null, "value": 2},
+#       {"id": "1", "left": null, "right": null, "value": 1}
+#     ],
+#     "root": "10"
+#   },
+#   "target": 12
+# }
 
-def gitMinValue(self):
-    currentNode = self
-    while currentNode.left is not None:
-        currentNode = currentNode.left
-    return currentNode.value
+# Solved recursively.
+# Average: 0(Log(n)) time | 0(Log(n)) space
+# Worst: 0(n) time | 0(n) space
+def findClosestValueInBst(tree, target):
+    return findClosestValueInBstHelper(tree, target, float("inf"))
+
+def findClosestValueInBstHelper(tree, target, closest):
+    if tree is None:
+        return closest
+    if abs(target - closest) > abs(target - tree.value):
+        closest = tree.value
+    if target < tree.value:
+        return findClosestValueInBstHelper(tree.left, target, closest)
+    elif target > tree.value:
+        return findClosestValueInBstHelper(tree.right, target, closest)
+    else:
+        return closest
