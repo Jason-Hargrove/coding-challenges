@@ -274,17 +274,36 @@
 # Solved recursively.
 # Average: 0(Log(n)) time | 0(Log(n)) space
 # Worst: 0(n) time | 0(n) space
+# def findClosestValueInBst(tree, target):
+#     return findClosestValueInBstHelper(tree, target, float("inf"))
+#
+# def findClosestValueInBstHelper(tree, target, closest):
+#     if tree is None:
+#         return closest
+#     if abs(target - closest) > abs(target - tree.value):
+#         closest = tree.value
+#     if target < tree.value:
+#         return findClosestValueInBstHelper(tree.left, target, closest)
+#     elif target > tree.value:
+#         return findClosestValueInBstHelper(tree.right, target, closest)
+#     else:
+#         return closest
+
+# Solved iteratively.
+# Average: 0(Log(n)) time | 0(1) space
+# Worst: 0(n) time | 0(1) space
 def findClosestValueInBst(tree, target):
     return findClosestValueInBstHelper(tree, target, float("inf"))
 
 def findClosestValueInBstHelper(tree, target, closest):
-    if tree is None:
-        return closest
-    if abs(target - closest) > abs(target - tree.value):
-        closest = tree.value
-    if target < tree.value:
-        return findClosestValueInBstHelper(tree.left, target, closest)
-    elif target > tree.value:
-        return findClosestValueInBstHelper(tree.right, target, closest)
-    else:
-        return closest
+    currentNode = tree
+    while currentNode is not None:
+        if abs(target - closest) > abs(target - currentNode.value):
+            closest = currentNode.value
+        if target < currentNode.value:
+            currentNode = tree.left
+        elif target > currentNode.value:
+            currentNode = currentNode.right
+        else:
+            break
+    return closest

@@ -341,44 +341,52 @@
 
 // ===== Find Closest Value in BST =====
 
-// ↓↓↓↓↓ You'll need to uncomment this to run Non-Constructible Change. ↓↓↓↓↓
-const tree = {
-  "nodes": [
-    {"id": "10", "left": "5", "right": "15", "value": 10},
-    {"id": "15", "left": "13", "right": "22", "value": 15},
-    {"id": "22", "left": null, "right": null, "value": 22},
-    {"id": "13", "left": null, "right": "14", "value": 13},
-    {"id": "14", "left": null, "right": null, "value": 14},
-    {"id": "5", "left": "2", "right": "5-2", "value": 5},
-    {"id": "5-2", "left": null, "right": null, "value": 5},
-    {"id": "2", "left": "1", "right": null, "value": 2},
-    {"id": "1", "left": null, "right": null, "value": 1}
-  ],
-  "root": "10"
-}
-
 // Solved recursively.
 // Average: 0(Log(n)) time | 0(Log(n)) space
 // Worst: 0(n) time | 0(n) space
 
+// function findClosestValueInBst(tree, target) {
+//   return findClosestValueInBstHelper(tree, target, tree.value);
+// }
+//
+// function findClosestValueInBstHelper(tree, target, closest) {
+//   if (tree == null) return closest;
+//   if (Math.abs(target - closest) > Math.abs(target - tree.value)) {
+//     closest = tree.value;
+//   }
+//   if (target < tree.value) {
+//     return findClosestValueInBstHelper(tree.left, target, closest);
+//   } else if (target > tree.value) {
+//     return findClosestValueInBstHelper(tree.right, target, closest);
+//   } else {
+//     return closest;
+//   }
+// }
+// console.log(findClosestValueInBst(tree, 12));
+
+
+// Solved iteratively.
+// Average: 0(Log(n)) time | 0(1) space
+// Worst: 0(n) time | 0(1) space
 function findClosestValueInBst(tree, target) {
   return findClosestValueInBstHelper(tree, target, tree.value);
 }
 
 function findClosestValueInBstHelper(tree, target, closest) {
-  if (tree == null) return closest;
-  if (Math.abs(target - closest) > Math.abs(target - tree.value)) {
-    closest = tree.value;
-  }
-  if (target < tree.value) {
-    return findClosestValueInBstHelper(tree.left, target, closest);
-  } else if (target > tree.value) {
-    return findClosestValueInBstHelper(tree.right, target, closest);
-  } else {
-    return closest;
-  }
+	let currentNode = tree;
+	while (currentNode !== null) {
+		if (Math.abs(target - closest) > Math.abs(target - currentNode.value)) {
+			closest = currentNode.value;
+		}
+		if (target < currentNode.value) {
+			currentNode = currentNode.left;
+		} else if (target > currentNode.value) {
+			currentNode = currentNode.right;
+		} else {
+			break;
+		}
+	}
+	return closest;
 }
-console.log(findClosestValueInBst(tree, 12));
-
 
 // To log output: cd into the file. In the terminal enter >node index
