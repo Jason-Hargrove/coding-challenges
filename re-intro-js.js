@@ -78,8 +78,71 @@ log = console.log;
 // log(Boolean(notDefined));
 // log(Boolean(one));
 
+// == Variables ==
+// let a;
+// let name = 'Jason';
+// console.log(name);
+// // myLetVariable is *not* visible out here
+// for (let myLetVariable = 0; myLetVariable <= 5; myLetVariable++) {
+//   // myLetVariable is only visible in here
+//   console.log(myLetVariable);
+// }
+// // myLetVariable is *not* visible out here
+// const Pi = 3.14;
+// log(Pi);
+// Pi = 1;
+// log(Pi);
+// log(myVarVariable); // myVarVariable *is* visible out here
+// for (var myVarVariable = 0; myVarVariable <= 10; myVarVariable++) {
+//   log(myVarVariable);
+// }
+// log(myVarVariable); // myVarVariable *is* visible out here
+// let a;
+// console.log(a); // undefined
 
-
-
+// == Operators ==
+// let x = 5;
+// x = 6;
+// x = x + 5;
+// log(x + 5);
+// let x = 5;
+// log(x + 5); // 10
+// x += 1;
+// log(x);
+// x++;
+// log(x);
+// x++;
+// log(x);
+// log('hello' + 'world');
+// let y = '3' + 4 + 5;
+// log(y + ' is a ' + typeof(y) + '.');
+// log(`${y} is a type of ${typeof(y)}.`)
+// log('hello' + ' world');
+// let b = 3 + 4 + '5';
+// log(`${b} is a type of ${typeof(b)}`);
+// let c = parseFloat(b);
+// log(`${b} was a ${typeof(b)}. Now, it's a ${typeof(c)}.`);
+// let d = 375;
+// log(`${d} is a type of ${typeof(d)}.`);
+// d = 375 + "";
+// log(`After adding an empty string,
+//   ${d} is a type of ${typeof(d)}.`);
+// let e = parseFloat(d);
+// log(e);
+// log(`After parseFloat,
+//   ${e} is a type of ${typeof(e)}.`);
+function aFunction() {
+  return 123 == '123';
+}
+log(aFunction());
+function bFunction() {
+  return 123 === '123';
+}
+log(bFunction());
+log(Boolean(1 === true));
+log(Boolean(1 == true));
+log(Boolean(2 === 2));
+log(Boolean(3 !== '3')); // true
+log(Boolean(4 != '4')); // false
 
 // To log output: cd into the file. In the terminal enter >node re-intro-js
