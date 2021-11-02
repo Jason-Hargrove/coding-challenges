@@ -292,18 +292,18 @@
 # Solved iteratively.
 # Average: 0(Log(n)) time | 0(1) space
 # Worst: 0(n) time | 0(1) space
-def findClosestValueInBst(tree, target):
-    return findClosestValueInBstHelper(tree, target, float("inf"))
-
-def findClosestValueInBstHelper(tree, target, closest):
-    currentNode = tree
-    while currentNode is not None:
-        if abs(target - closest) > abs(target - currentNode.value):
-            closest = currentNode.value
-        if target < currentNode.value:
-            currentNode = tree.left
-        elif target > currentNode.value:
-            currentNode = currentNode.right
-        else:
-            break
-    return closest
+# def findClosestValueInBst(tree, target):
+#     return findClosestValueInBstHelper(tree, target, float("inf"))
+#
+# def findClosestValueInBstHelper(tree, target, closest):
+#     currentNode = tree
+#     while currentNode is not None:
+#         if abs(target - closest) > abs(target - currentNode.value):
+#             closest = currentNode.value
+#         if target < currentNode.value:
+#             currentNode = tree.left
+#         elif target > currentNode.value:
+#             currentNode = currentNode.right
+#         else:
+#             break
+#     return closest
