@@ -131,18 +131,69 @@ log = console.log;
 // log(e);
 // log(`After parseFloat,
 //   ${e} is a type of ${typeof(e)}.`);
-function aFunction() {
-  return 123 == '123';
+// function aFunction() {
+//   return 123 == '123';
+// }
+// log(aFunction());
+// function bFunction() {
+//   return 123 === '123';
+// }
+// log(bFunction());
+// log(Boolean(1 === true));
+// log(Boolean(1 == true));
+// log(Boolean(2 === 2));
+// log(Boolean(3 !== '3')); // true
+// log(Boolean(4 != '4')); // false
+
+// == Control Structures ==
+// let name = "kittens";
+// if (name === "puppies") {
+//   name += ' woof';
+// } else if (name === "kittens") {
+//   name += ' meow';
+// } else {
+//   name += " !";
+// }
+// console.log(name);
+// while (true) {
+//   // an infinite loop!
+// }
+// for (let i = 1; i <= 5; i++) {
+//   console.log(i);
+// }
+// const arr = [10, 20, 30,];
+// for (let val of arr) {
+//   val += 1;
+//   log(val);
+// }
+// const iterable = 'boo';
+// for (let val of iterable) {
+//   log(val);
+// }
+// const someObj = {
+//   name: "Jason",
+//   lastName: "Hargrove",
+//   age: 45
+// };
+// for (let val in someObj) {
+//   log(val);
+// }
+// let age = 10;
+// log((age >= 18) ? 'yes' : 'no');
+function drawIt() {
+  log('It\'s drawn!')
 }
-log(aFunction());
-function bFunction() {
-  return 123 === '123';
+const expr = 'Something not on in the switch.';
+switch (expr) {
+  case 'Oranges':
+    log('Nope. Not today.')
+    break;
+  case 'Mangoes': // fallthrough
+  case 'Papayas':
+    drawIt();
+    break;
+  default:
+    log('You have reached the end of the switch statement. Goodbye.');
 }
-log(bFunction());
-log(Boolean(1 === true));
-log(Boolean(1 == true));
-log(Boolean(2 === 2));
-log(Boolean(3 !== '3')); // true
-log(Boolean(4 != '4')); // false
 
 // To log output: cd into the file. In the terminal enter >node re-intro-js
