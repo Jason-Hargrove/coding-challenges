@@ -180,20 +180,77 @@ log = console.log;
 // }
 // let age = 10;
 // log((age >= 18) ? 'yes' : 'no');
-function drawIt() {
-  log('It\'s drawn!')
+// function drawIt() {
+//   log('It\'s drawn!')
+// }
+// const expr = 'Something not on in the switch.';
+// switch (expr) {
+//   case 'Oranges':
+//     log('Nope. Not today.')
+//     break;
+//   case 'Mangoes': // fallthrough
+//   case 'Papayas':
+//     drawIt();
+//     break;
+//   default:
+//     log('You have reached the end of the switch statement. Goodbye.');
+// }
+
+// == Objects ==
+// const obj = new Object();
+// log(typeof(obj));
+// const obj = {};
+// const obj = {
+//   name: 'Carrot',
+//   _for: 'Max', // 'for' is a reserved word, use '_for' instead.
+//   details: {
+//     color: 'orange',
+//     size: '12'
+//   }
+// }
+// // log(obj);
+// log(obj.details.color);
+// Object prototype
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+// const you = new Person('Jason', 45);
+// log(typeof(Person));
+// log(you);
+//
+// function Dog(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+// const him = new Dog("Toki", 15);
+// log(him);
+//
+// function Cat(isSick, hairBall) {
+//   this.isSick = isSick;
+//   this.hairBall = hairBall;
+// }
+// const fuzzy = new Cat("Yes", "Yup");
+// log(fuzzy);
+
+function Chicken(hungry, missing, isADuck) {
+  this.hungry = hungry;
+  this.missing = missing;
+  this.isADuck = isADuck;
 }
-const expr = 'Something not on in the switch.';
-switch (expr) {
-  case 'Oranges':
-    log('Nope. Not today.')
-    break;
-  case 'Mangoes': // fallthrough
-  case 'Papayas':
-    drawIt();
-    break;
-  default:
-    log('You have reached the end of the switch statement. Goodbye.');
-}
+const daisy = new Chicken("Starving.", "All the time.");
+// log(daisy);
+// daisy.hungry = "Full";
+// log(daisy);
+// daisy.missing += " But just found her.";
+// log(daisy);
+// log(daisy.hungry);
+// let name = daisy.missing;
+// log(name);
+// bracket notation
+// log(daisy['hungry'] = "full");
+daisy.isADuck = false;
+log(daisy);
+
 
 // To log output: cd into the file. In the terminal enter >node re-intro-js
